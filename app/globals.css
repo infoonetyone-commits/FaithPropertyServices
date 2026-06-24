@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --teal: #183030;
+  --mint: #d7efe2;
+  --ink: #020101;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: #ffffff;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-block font-body text-sm font-bold uppercase tracking-[0.18em] text-teal/70;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 font-body text-sm font-bold transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-teal text-white hover:bg-teal-deep;
+  }
+
+  .btn-light {
+    @apply btn bg-mint text-teal hover:bg-white;
+  }
+
+  .btn-outline {
+    @apply btn border border-white/40 text-white hover:bg-white hover:text-teal;
+  }
+}
