@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --teal: #183030;
-  --mint: #d7efe2;
-  --ink: #020101;
+  --navy: #0f172a;
+  --cyan: #3aa6b9;
+  --mint: #e9f8f9;
 }
 
 html {
@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  color: var(--ink);
+  color: #0f172a;
   background: #ffffff;
 }
 
@@ -23,22 +23,25 @@ body {
   }
 
   .eyebrow {
-    @apply inline-block font-body text-sm font-bold uppercase tracking-[0.18em] text-teal/70;
+    @apply inline-block font-body text-sm font-semibold uppercase tracking-[0.2em] text-cyan;
   }
 
   .btn {
     @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 font-body text-sm font-bold transition-colors duration-200;
   }
 
+  /* Filled cyan pill with navy text — the site's primary button */
   .btn-primary {
-    @apply btn bg-teal text-white hover:bg-teal-deep;
+    @apply btn bg-cyan text-navy hover:bg-cyan-dark;
   }
 
-  .btn-light {
-    @apply btn bg-mint text-teal hover:bg-white;
+  /* Outline pill on dark backgrounds (e.g. "Call Us Now" on hero) */
+  .btn-outline-light {
+    @apply btn border border-white/50 text-white hover:bg-white hover:text-navy;
   }
 
-  .btn-outline {
-    @apply btn border border-white/40 text-white hover:bg-white hover:text-teal;
+  /* Outline pill on light backgrounds (e.g. "Learn More") */
+  .btn-outline-dark {
+    @apply btn border border-navy/30 text-navy hover:bg-navy hover:text-white;
   }
 }

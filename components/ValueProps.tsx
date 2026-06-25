@@ -23,17 +23,17 @@ const props = [
 
 export default function ValueProps() {
   return (
-    <section className="bg-white py-14">
+    <section className="bg-mint py-14">
       <div className="container-x grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {props.map((p) => (
           <div key={p.title} className="flex flex-col items-start gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-mint">
+            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-cyan/15">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path d={p.icon} stroke="#183030" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                <path d={p.icon} stroke="#3aa6b9" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <h3 className="font-heading text-xl font-bold text-ink">{p.title}</h3>
-            <p className="font-body text-ink/65">{p.text}</p>
+            <h3 className="font-heading text-xl font-semibold text-navy">{p.title}</h3>
+            <p className="font-body text-navy/65">{p.text}</p>
           </div>
         ))}
       </div>

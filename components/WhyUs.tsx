@@ -18,13 +18,13 @@ const items = [
 
 export default function WhyUs() {
   return (
-    <section id="process" className="bg-teal py-20 text-white">
+    <section id="process" className="bg-navy py-20 text-white">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-block font-body text-sm font-bold uppercase tracking-[0.18em] text-mint">
+          <span className="inline-block font-body text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
             Why Us
           </span>
-          <h2 className="mt-4 font-heading text-3xl font-bold leading-tight sm:text-4xl">
+          <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight sm:text-4xl">
             Our Commitment to Excellence
           </h2>
         </div>
@@ -35,12 +35,12 @@ export default function WhyUs() {
               key={item.title}
               className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-mint">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-cyan/20">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                  <path d={item.icon} stroke="#183030" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d={item.icon} stroke="#3aa6b9" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="mt-6 font-heading text-xl font-bold">{item.title}</h3>
+              <h3 className="mt-6 font-heading text-xl font-semibold">{item.title}</h3>
               <p className="mt-3 font-body text-white/75">{item.text}</p>
             </div>
           ))}
