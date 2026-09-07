@@ -1,8 +1,11 @@
+import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+import { WaveCanvas } from "@/components/ui/wave-canvas";
+
 const items = [
   {
-    title: "Expertise & Experience",
-    text: "With over 13 years of proven industry experience, our skilled and insured team delivers consistent, high-quality cleaning with professionalism and care.",
-    icon: "M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z",
+    title: "Fully Insured & Compliant",
+    text: "CM3 prequalified, WorkSafe compliant, and covered by comprehensive public liability insurance—so you can engage us with complete confidence.",
+    icon: "M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z",
   },
   {
     title: "Customized Solutions",
@@ -10,30 +13,31 @@ const items = [
     icon: "M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4z",
   },
   {
-    title: "Sustainable Practices",
-    text: "We use eco-friendly cleaning products and safe, compliant methods that protect people, property, and the environment.",
-    icon: "M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10zM2 21c0-3 1.85-5.36 5.08-6",
+    title: "Consistent Quality Control",
+    text: "Supervisors run scheduled inspections against documented checklists, with findings logged and actioned—so quality never depends on chance.",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 4a2 2 0 012-2h2a2 2 0 012 2v1H9V4zM9 13l2 2 4-4",
   },
 ];
 
 export default function WhyUs() {
   return (
-    <section id="process" className="bg-navy py-20 text-white">
-      <div className="container-x">
-        <div className="mx-auto max-w-2xl text-center">
+    <section id="process" className="relative overflow-hidden bg-navy-deep/75 py-20 text-white">
+      <WaveCanvas className="absolute inset-0 h-full w-full opacity-70" />
+      <div className="container-x relative z-10">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="inline-block font-body text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
             Why Us
           </span>
           <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight sm:text-4xl">
             Our Commitment to Excellence
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <RevealGroup className="mt-12 grid gap-8 md:grid-cols-3">
           {items.map((item) => (
-            <div
+            <RevealItem
               key={item.title}
-              className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10"
+              className="glass rounded-2xl p-8"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-cyan/20">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -42,9 +46,9 @@ export default function WhyUs() {
               </div>
               <h3 className="mt-6 font-heading text-xl font-semibold">{item.title}</h3>
               <p className="mt-3 font-body text-white/75">{item.text}</p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );

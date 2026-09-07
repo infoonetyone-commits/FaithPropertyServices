@@ -791,6 +791,136 @@ export const services: ServiceData[] = [
         ]
       }
     ]
+  },
+  {
+    "slug": "ndis",
+    "title": "NDIS Household Tasks & Garden Maintenance",
+    "intro": "Supporting Independence Through Professional Home & Garden Services",
+    "hero": "/svc/home-domestic-cleaning-services-hero.jpg",
+    "image1": "/sp-home.jpg",
+    "image1Side": "L",
+    "image1Aspect": 1.5,
+    "image2": "/svc/home-domestic-cleaning-services-2.jpg",
+    "image2Side": "R",
+    "image2Aspect": 1,
+    "sections": [
+      {
+        "paragraphs": [
+          "At Faith Property Services, we are committed to helping NDIS participants live safely, comfortably, and independently in their own homes. We provide reliable Household Tasks and Garden Maintenance services that are tailored to each participant’s individual needs, goals, and NDIS plan.",
+          "With over 15 years of professional cleaning and property maintenance experience, we deliver high-quality services with genuine care, respect, and attention to detail. Our team works closely with participants, families, support coordinators, and plan managers to create clean, safe, and welcoming living environments."
+        ]
+      },
+      {
+        "heading": "Our Household Tasks Services",
+        "paragraphs": [
+          "We provide a wide range of household cleaning and home maintenance services, including:"
+        ],
+        "bullets": [
+          "General house cleaning",
+          "Kitchen cleaning and sanitising",
+          "Bathroom and toilet cleaning",
+          "Vacuuming and mopping",
+          "Dusting all surfaces",
+          "Laundry assistance",
+          "Changing bed linen",
+          "Internal window cleaning",
+          "Rubbish removal and bin management",
+          "Surface disinfection",
+          "Deep cleaning",
+          "Carpet and upholstery steam cleaning",
+          "Hard floor scrubbing and restoration",
+          "Cobweb removal",
+          "Move-in and move-out cleaning",
+          "One-off or regular scheduled cleaning"
+        ]
+      },
+      {
+        "heading": "Our Garden Maintenance Services",
+        "paragraphs": [
+          "We help participants maintain safe, tidy, and enjoyable outdoor spaces by providing:"
+        ],
+        "bullets": [
+          "Lawn mowing",
+          "Whipper snipping and edging",
+          "Weed removal and weed control",
+          "Hedge trimming",
+          "Pruning shrubs and small trees",
+          "Garden bed maintenance",
+          "Leaf blowing and leaf removal",
+          "Green waste collection",
+          "General garden clean-ups",
+          "Outdoor sweeping",
+          "Pressure cleaning of driveways, paths and outdoor areas",
+          "Gutter cleaning (where safe and appropriate)",
+          "Seasonal garden maintenance",
+          "Outdoor rubbish removal (where approved)"
+        ]
+      },
+      {
+        "heading": "Tailored Support That Works for You",
+        "paragraphs": [
+          "Every participant has unique needs. Whether you require weekly, fortnightly, monthly, or one-off assistance, we create a personalised service plan that suits your lifestyle, goals, and available NDIS funding.",
+          "We proudly work with:"
+        ],
+        "bullets": [
+          "Self-managed participants",
+          "Plan-managed participants",
+          "Support coordinators",
+          "Plan managers",
+          "Families and carers",
+          "Community organisations"
+        ]
+      },
+      {
+        "heading": "Why Choose Faith Property Services?",
+        "paragraphs": [
+          "When you choose Faith Property Services, you’re partnering with a team that values professionalism, reliability, and compassionate service.",
+          "We Offer:"
+        ],
+        "bullets": [
+          "Over 15 years of industry experience",
+          "Professional commercial cleaning standards",
+          "Friendly, respectful, and reliable staff",
+          "Flexible scheduling to suit your needs",
+          "Fully insured services",
+          "High attention to detail",
+          "Consistent communication with participants and support teams",
+          "Tailored services that support independent living"
+        ]
+      },
+      {
+        "heading": "Safety & Compliance",
+        "paragraphs": [
+          "Your safety and peace of mind are our highest priorities. Faith Property Services maintains professional standards and complies with industry best practices.",
+          "Our team is supported by:"
+        ],
+        "bullets": [
+          "Public Liability Insurance",
+          "Workers Compensation Insurance",
+          "Police Checks",
+          "Working With Children Checks (where required)",
+          "CM3 Prequalification",
+          "Labour Hire Authority Licence",
+          "Safe Work Procedures and Risk Assessments",
+          "Professionally trained and experienced staff"
+        ]
+      },
+      {
+        "heading": "Our Commitment",
+        "paragraphs": [
+          "We believe that everyone deserves to live in a clean, safe, and comfortable environment. Whether it’s maintaining a spotless home, restoring a garden, or helping create a safer living space, our team is committed to delivering services that improve everyday life and support greater independence.",
+          "At Faith Property Services, we don’t simply provide cleaning and garden maintenance—we build trusted relationships through quality workmanship, reliability, and genuine care."
+        ]
+      },
+      {
+        "heading": "Contact Faith Property Services",
+        "paragraphs": [
+          "If you’re looking for a trusted provider of NDIS Household Tasks and Garden Maintenance, we’d love to discuss how we can support you.",
+          "Faith Property Services\nProfessional Cleaning • Property Maintenance • NDIS Support Services",
+          "Helping participants live independently—one clean, safe home at a time."
+        ]
+      }
+    ]
   }
 ];
 

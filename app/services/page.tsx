@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import PageHero from "@/components/PageHero";
+import ServicesHero from "@/components/ServicesHero";
 import CTA from "@/components/CTA";
+import { Reveal } from "@/components/Reveal";
+import HorizontalServices from "@/components/HorizontalServices";
 
 export const metadata: Metadata = {
   title: "Services - Faith Property Services",
@@ -64,68 +65,35 @@ const services = [
 export default function ServicesPage() {
   return (
     <main>
-      <PageHero
-        title="Our Services"
-        subtitle="From large-scale industrial facilities to boutique retail spaces, our experienced team ensures spotless results that reflect your brand's standards of excellence."
-        image="/services-hero.jpg"
-      />
+      <ServicesHero />
 
-      {/* Full range of services */}
-      <section className="bg-mint py-20">
-        <div className="container-x">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow">All Services</span>
-            <h2 className="mt-4 font-heading text-3xl font-semibold text-navy sm:text-4xl">
-              Our Full Range of Services
-            </h2>
-          </div>
-
-          <div className="mt-12 grid gap-7 md:grid-cols-2">
-            {services.map((s) => (
-              <article
-                key={s.title}
-                className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-navy/5 sm:flex-row"
-              >
-                <div className="relative h-52 sm:h-auto sm:w-2/5">
-                  <Image src={s.img} alt={s.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 40vw" />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-heading text-xl font-semibold text-navy">{s.title}</h3>
-                  <p className="mt-3 flex-1 font-body text-sm text-navy/65">{s.text}</p>
-                  <div className="mt-5">
-                    <Link href={s.href} className="btn-primary !py-2.5 !px-6">Read More</Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Full range of services — sticky-pinned, sliding two-up per scroll,
+          same horizontal-scroll mechanic as OnetyOne's "Clients we've built
+          for" section. */}
+      <HorizontalServices services={services} />
 
       {/* Legacy */}
-      <section className="bg-white py-20">
+      <section className="bg-navy-deep/75 py-20">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-navy/10">
+          <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl shadow-cyan/5 ring-1 ring-white/10">
             <Image src="/sp-legacy.jpg" alt="Faith Property Services legacy" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-          </div>
-          <div>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-navy-deep/10 to-navy-deep/25" />
+          </Reveal>
+          <Reveal delay={0.1}>
             <span className="eyebrow">Our Legacy</span>
-            <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight text-navy sm:text-4xl">
-              Decades of Trusted Excellence
+            <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight text-white sm:text-4xl">
+              13+ Years of Trusted Excellence
             </h2>
-            <p className="mt-5 font-body text-lg text-navy/70">
+            <p className="mt-5 font-body text-lg text-white/65">
               At Faith Property Services, our reputation is built on reliability,
-              quality, and trust. For over two decades, we&rsquo;ve been delivering
+              quality, and trust. Since 2012, we&rsquo;ve been delivering
               high-standard commercial and industrial cleaning solutions across
               offices, retail spaces, healthcare facilities, and educational
               institutions. Our experienced team takes pride in maintaining
               environments that are spotless, safe, and welcoming, ensuring every
               client experiences service that goes beyond expectations.
             </p>
-            <div className="mt-8">
-              <Link href="/contact" className="btn-primary">Get a Free Quote</Link>
-            </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

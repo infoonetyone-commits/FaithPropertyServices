@@ -12,14 +12,46 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Service card -> service page hero: shared-element morph (Chromium only;
+   browsers without View Transitions support just navigate normally).
+   Group handles the container's position/size morph; old/new handle the
+   cross-fade between the two photos — kept in sync so nothing finishes
+   early. */
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.85s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* But keep that smooth cross-fade scoped to the shared photo only. By
+   default the browser also cross-fades the *entire rest of the page*
+   (old layout over new layout) at the same time — since the card grid and
+   the detail page have totally different layouts, that full-page blend
+   looked choppy and overlapping. Make everything else just cut instantly
+   instead, so only the photo visibly morphs. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
 body {
-  color: #0f172a;
-  background: #ffffff;
+  color: #ffffff;
+  background: #0b1120;
 }
 
 @layer components {
   .container-x {
     @apply mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Full-viewport height with a safe fallback: browsers that don't understand
+     100svh (older Safari, some in-app WebViews) just ignore that line and
+     keep the 100vh above it, instead of silently dropping min-height
+     entirely and collapsing the section. */
+  .hero-viewport {
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .eyebrow {
@@ -40,8 +72,37 @@ body {
     @apply btn border border-white/50 text-white hover:bg-white hover:text-navy;
   }
 
+  /* Filled warm-gold pill — deliberately off the site's cyan accent so the
+     NDIS nav badge reads as a distinct highlight, not just another link. */
+  .btn-ndis {
+    @apply btn bg-yellow text-navy hover:bg-yellow-dark;
+  }
+
   /* Outline pill on light backgrounds (e.g. "Learn More") */
   .btn-outline-dark {
     @apply btn border border-navy/30 text-navy hover:bg-navy hover:text-white;
+  }
+
+  /* Frosted glass card surface (value-prop cards over the wave canvas) */
+  .glass {
+    @apply border border-white/10 bg-white/5 backdrop-blur-md;
+  }
+
+  /* SchemaCard: outer card frame */
+  .card-border {
+    @apply border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+  }
+
+  /* SchemaCard: inner preview panel border */
+  .gradient-border {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(rgba(15, 15, 20, 0.6), rgba(15, 15, 20, 0.6)) padding-box,
+      linear-gradient(135deg, rgba(129, 90, 229, 0.6), rgba(79, 70, 229, 0.1)) border-box;
+  }
+
+  /* SchemaCard: soft glow inside the preview panel */
+  .inner-glow {
+    box-shadow: inset 0 0 30px rgba(79, 70, 229, 0.15);
   }
 }

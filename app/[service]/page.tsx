@@ -4,9 +4,10 @@ import ServicePage from "@/components/ServicePage";
 import { services, getService } from "@/lib/services-data";
 
 // Standalone top-level service pages (excludes the commercial-cleaning hub,
-// which has its own folder with sub-pages).
+// which has its own folder with sub-pages, and ndis, which has its own
+// dedicated route so it can use the docking-word hero instead of PageHero).
 const topLevel = services.filter(
-  (s) => !s.slug.includes("/") && s.slug !== "commercial-cleaning"
+  (s) => !s.slug.includes("/") && s.slug !== "commercial-cleaning" && s.slug !== "ndis"
 );
 
 export const dynamicParams = false;

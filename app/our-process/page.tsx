@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import PageHero from "@/components/PageHero";
+import ProcessHero from "@/components/ProcessHero";
 import CTA from "@/components/CTA";
+import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
+import StickyProcess from "@/components/StickyProcess";
+import LogoWall from "@/components/LogoWall";
+import { WaveCanvas } from "@/components/ui/wave-canvas";
 
 export const metadata: Metadata = {
   title: "Our Process - Faith Property Services",
@@ -30,15 +34,12 @@ const steps = [
     title: "Continuous Improvement",
     text: "We review trends, feedback, and audit results to refine scope, frequencies, and processes.",
   },
-  {
-    title: "Quality Assurance, Supervision & Staff Training",
-    text: "We implement scheduled inspections and internal audits to ensure every task meets specification.",
-  },
 ];
 
 const pillars = [
   {
     title: "Quality Assurance",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
     points: [
       "Daily and weekly inspections against specification",
       "Maintained reports and documented checklists",
@@ -48,6 +49,7 @@ const pillars = [
   },
   {
     title: "Onsite Supervision",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
     points: [
       "Trained supervisors monitoring performance",
       "WHS compliance and safe work practices",
@@ -56,6 +58,7 @@ const pillars = [
   },
   {
     title: "Staff Training & Development",
+    icon: "M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422A12.083 12.083 0 0112 21a12.083 12.083 0 01-6.16-11.422L12 14z",
     points: [
       "WHS induction for every team member",
       "Chemical safety and handling",
@@ -75,39 +78,28 @@ const compliance = [
 export default function OurProcessPage() {
   return (
     <main>
-      <PageHero
-        title="Our Process"
-        subtitle="We keep your sites spotless, safe, and compliant—without disrupting operations. Our method is structured, audited, and built for property managers, facility teams, and councils across Melbourne and Victoria."
-        image="/process-hero.jpg"
-      />
+      <ProcessHero />
 
       {/* How we work */}
-      <section className="bg-white py-20">
-        <div className="container-x">
-          <div className="mx-auto max-w-2xl text-center">
+      <section className="relative bg-cloud pt-20">
+        <div className="container-x relative z-10">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow">How We Work</span>
             <h2 className="mt-4 font-heading text-3xl font-semibold text-navy sm:text-4xl">
               A Method Built for Compliance
             </h2>
-          </div>
-          <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {steps.map((s, i) => (
-              <div key={s.title} className="rounded-2xl bg-mint p-7 ring-1 ring-navy/5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-cyan font-heading text-lg font-bold text-white">
-                  {i + 1}
-                </div>
-                <h3 className="mt-5 font-heading text-lg font-semibold text-navy">{s.title}</h3>
-                <p className="mt-3 font-body text-sm text-navy/65">{s.text}</p>
-              </div>
-            ))}
-          </div>
+          </Reveal>
+        </div>
+        <div className="relative z-10">
+          <StickyProcess steps={steps} />
         </div>
       </section>
 
       {/* Pillars */}
-      <section className="bg-navy py-20 text-white">
-        <div className="container-x mb-14 grid items-center gap-12 lg:grid-cols-2">
-          <div>
+      <section className="relative overflow-hidden bg-navy-deep/75 py-20 text-white">
+        <WaveCanvas className="absolute inset-0 h-full w-full opacity-70" />
+        <div className="container-x relative z-10">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <span className="inline-block font-body text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
               Assured Quality
             </span>
@@ -118,46 +110,62 @@ export default function OurProcessPage() {
               We implement scheduled inspections and internal audits to ensure
               every task meets specification.
             </p>
-          </div>
-          <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10" style={{ aspectRatio: "0.6" }}>
-            <Image src="/process-vertical.jpg" alt="Faith Property Services quality assurance" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-          </div>
-        </div>
-        <div className="container-x grid gap-8 md:grid-cols-3">
-          {pillars.map((p) => (
-            <div key={p.title} className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10">
-              <h3 className="font-heading text-xl font-semibold">{p.title}</h3>
-              <ul className="mt-5 space-y-3">
-                {p.points.map((pt) => (
-                  <li key={pt} className="flex items-start gap-3 font-body text-sm text-white/75">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-cyan" />
-                    {pt}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          </Reveal>
+          <RevealGroup className="mt-12 grid gap-8 md:grid-cols-3">
+            {pillars.map((p) => (
+              <RevealItem key={p.title} className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan/10">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d={p.icon} stroke="#3aa6b9" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h3 className="mt-5 font-heading text-xl font-semibold">{p.title}</h3>
+                <ul className="mt-5 space-y-3">
+                  {p.points.map((pt) => (
+                    <li key={pt} className="flex items-start gap-3 font-body text-sm text-white/75">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-cyan" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </RevealItem>
+            ))}
+          </RevealGroup>
         </div>
       </section>
 
       {/* Compliance */}
-      <section className="bg-gradient-to-b from-mint to-white py-20">
-        <div className="container-x">
-          <div className="overflow-hidden rounded-3xl bg-white shadow-xl shadow-navy/5 ring-1 ring-navy/10 lg:grid lg:grid-cols-2">
-            {/* Left — credentials on dark panel */}
-            <div className="relative bg-navy p-8 text-white sm:p-12">
+      <section className="relative overflow-hidden py-20">
+        <Image
+          src="/fleet-vehicle.png"
+          alt="A Faith Property Services branded fleet vehicle"
+          fill
+          className="pointer-events-none select-none object-cover"
+          style={{ objectPosition: "center 40%" }}
+          sizes="100vw"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-navy-deep/80" />
+
+        <Reveal className="container-x relative">
+          <div className="relative overflow-hidden rounded-3xl bg-navy/70 shadow-2xl shadow-cyan/5 ring-1 ring-white/10 backdrop-blur-md lg:grid lg:grid-cols-2">
+            {/* Accent strip */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan via-cyan/40 to-transparent" />
+
+            {/* Left — credentials */}
+            <div className="relative overflow-hidden p-8 text-white sm:p-12">
               <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-cyan/10 blur-2xl" />
-              <span className="inline-block font-body text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
+              <div className="pointer-events-none absolute -bottom-24 -left-12 h-56 w-56 rounded-full bg-cyan/5 blur-3xl" />
+              <span className="relative inline-block font-body text-sm font-semibold uppercase tracking-[0.2em] text-cyan">
                 Compliance &amp; Certifications
               </span>
-              <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight sm:text-4xl">
+              <h2 className="relative mt-4 font-heading text-3xl font-semibold leading-tight sm:text-4xl">
                 Fully Compliant &amp; Audit-Ready
               </h2>
-              <p className="mt-4 font-body text-white/70">
+              <p className="relative mt-4 font-body text-white/70">
                 Licensed, insured, and independently accredited — so you can
                 engage us with complete confidence.
               </p>
-              <ul className="mt-8 space-y-4">
+              <ul className="relative mt-8 space-y-4">
                 {compliance.map((c) => (
                   <li key={c} className="flex items-start gap-3 font-body text-white/90">
                     <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-cyan text-navy">
@@ -172,32 +180,17 @@ export default function OurProcessPage() {
             </div>
 
             {/* Right — official logo wall */}
-            <div className="p-8 sm:p-12">
-              <p className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-navy/50">
+            <div className="flex flex-col border-t border-white/10 p-8 sm:p-12 lg:border-l lg:border-t-0 lg:justify-center">
+              <p className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-white/50">
                 Accredited &amp; Insured By
               </p>
-              <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-navy/10 ring-1 ring-navy/10 sm:grid-cols-3">
-                {[1, 2, 3, 4, 5, 6].map((n) => (
-                  <div
-                    key={n}
-                    className="flex h-28 items-center justify-center bg-white p-5 transition-colors duration-200 hover:bg-mint"
-                  >
-                    <Image
-                      src={`/certs/cert-${n}.png`}
-                      alt="Certification logo"
-                      width={184}
-                      height={99}
-                      className="max-h-full w-auto object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
+              <LogoWall count={6} />
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <CTA />
+      <CTA light="cloud" />
     </main>
   );
 }

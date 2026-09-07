@@ -11,6 +11,11 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
+  // Lets phones/other devices on the LAN load the dev server via its network
+  // IP without Next blocking HMR/dev-resource requests as cross-origin —
+  // without this, client-side JS (hydration, scroll listeners, etc.) can
+  // silently fail on that origin even though the server-rendered HTML looks fine.
+  allowedDevOrigins: ["192.168.0.49"],
 };
 
 export default nextConfig;

@@ -1,36 +1,77 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function Hero() {
-  return (
-    <section id="home" className="relative overflow-hidden">
-      {/* Background photo */}
-      <div className="absolute inset-0">
-        <Image
-          src="/hero.jpg"
-          alt="Faith Property Services cleaning team"
-          fill
-          priority
-          className="object-cover object-[center_top]"
-        />
-        {/* Dark gradient overlay for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/30" />
-      </div>
+  // Wrapper is taller than the viewport so the section can stay pinned
+  // (sticky) for a stretch of scroll while the wordmark animates, then
+  // release and let the page continue once the wrapper's extra height
+  // has been scrolled through.
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: wrapperRef,
+    offset: ["start start", "end end"],
+  });
 
-      <div className="container-x relative flex min-h-[100svh] items-center py-32">
-        <div className="max-w-2xl text-white">
-          <h1 className="font-heading text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-[4.1rem]">
-            Professional Commercial Cleaning Across Victoria
-          </h1>
-          <p className="mt-6 max-w-xl font-body text-lg text-white/85">
-            Creating cleaner, safer, and more professional spaces, one site at a
-            time.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <a href="#contact" className="btn-primary">Get a Free Quote</a>
-            <a href="tel:61423204386" className="btn-outline-light">Call Us Now</a>
-          </div>
+  // Rise and expand are tied directly to scroll position — scrolling down
+  // plays it forward, scrolling back up reverses it, in sync with the
+  // scrollbar the whole way. Bound straight to scrollYProgress (no
+  // useSpring smoothing) — a spring needs its own animation-frame loop to
+  // converge toward a moving target, and that loop can stall on some
+  // mobile browsers/WebViews during inertial touch scroll, freezing the
+  // wordmark transform even though native position:sticky (handled by the
+  // compositor, not JS) keeps pinning correctly.
+  const wordmarkY = useTransform(scrollYProgress, [0, 0.7], ["0vh", "-42vh"]);
+  const wordmarkScale = useTransform(scrollYProgress, [0, 0.7], [1, 1.7]);
+
+  // Side copy stays put — no longer slides toward the center.
+
+  return (
+    <div id="home" ref={wrapperRef} className="relative" style={{ height: "170vh" }}>
+      <section className="sticky top-0 hero-viewport overflow-hidden bg-navy-deep">
+        {/* Real page heading, kept for SEO/accessibility — the wordmark below is a stylized logotype, not prose */}
+        <h1 className="sr-only">Professional Commercial Cleaning Across Victoria</h1>
+
+        {/* Background photo, shown unedited — no dimming/fade overlay, no opacity
+            reduction. Wrapped in its own absolute div so next/image's `fill` sees
+            an explicitly "absolute" parent (it doesn't recognize "sticky" on the
+            section as a valid positioning context, even though it works fine —
+            this just satisfies its own dev-only check). */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero-new-upscaled.jpeg"
+            alt="Faith Property Services — dark, reflective cleaned floor"
+            fill
+            priority
+            className="object-cover object-center"
+          />
         </div>
-      </div>
-    </section>
+
+        {/* Giant wordmark lockup — bottom edge; rises and expands as you scroll.
+            Expansion is driven by font-size (via the --wm-scale CSS variable), not a
+            transform: scale() — scaling a rasterized text layer up with a transform
+            stretches its existing pixels instead of re-rendering the glyphs, which
+            reads as blurry. Recomputing font-size every frame keeps the text crisp
+            at every size. Only the rise (y) uses a transform, since translating
+            doesn't resample anything. */}
+        <motion.div
+          style={{ y: wordmarkY, ["--wm-scale" as string]: wordmarkScale, willChange: "transform" }}
+          className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-center overflow-hidden pb-4"
+        >
+          <p
+            className={`font-heading select-none whitespace-nowrap text-[calc(11vw*var(--wm-scale,1))] uppercase leading-[0.8] tracking-tight text-white/95 sm:text-[calc(9vw*var(--wm-scale,1))] lg:text-[calc(7vw*var(--wm-scale,1))]`}
+          >
+            Faith
+          </p>
+          <span
+            className={`font-heading mt-3 text-[calc(0.875rem*var(--wm-scale,1))] font-medium uppercase tracking-[0.2em] text-white/70 sm:text-[calc(1.5rem*var(--wm-scale,1))] sm:tracking-[0.3em] lg:text-[calc(2.25rem*var(--wm-scale,1))]`}
+          >
+            Property Services
+          </span>
+        </motion.div>
+      </section>
+    </div>
   );
 }
