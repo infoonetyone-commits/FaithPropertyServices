@@ -42,11 +42,11 @@ function buildSlideMap(count: number) {
 
 function ServicesMobile({ services }: { services: ServiceItem[] }) {
   return (
-    <section className="relative bg-navy-deep/75 py-20">
+    <section className="relative bg-cloud py-20">
       <div className="container-x relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">All Services</span>
-          <h2 className="mt-4 font-heading text-3xl font-semibold text-white sm:text-4xl">
+          <h2 className="mt-4 font-heading text-3xl font-semibold text-navy sm:text-4xl">
             Our Full Range of Services
           </h2>
         </Reveal>
@@ -55,7 +55,7 @@ function ServicesMobile({ services }: { services: ServiceItem[] }) {
           {services.map((s) => (
             <RevealItem
               key={s.title}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white/[0.04] ring-1 ring-white/10"
+              className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-xl shadow-navy/5 ring-1 ring-navy/10"
             >
               <div className="relative h-52 overflow-hidden">
                 <Image
@@ -69,8 +69,8 @@ function ServicesMobile({ services }: { services: ServiceItem[] }) {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-navy-deep/10 to-navy-deep/25" />
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-heading text-xl font-semibold text-white">{s.title}</h3>
-                <p className="mt-3 flex-1 font-body text-sm text-white/60">{s.text}</p>
+                <h3 className="font-heading text-xl font-semibold text-navy">{s.title}</h3>
+                <p className="mt-3 flex-1 font-body text-sm text-navy/65">{s.text}</p>
                 <div className="mt-5">
                   <ViewTransitionLink href={s.href} className="btn-primary !py-2.5 !px-6">
                     Read More
@@ -105,13 +105,13 @@ function ServicesDesktop({ services }: { services: ServiceItem[] }) {
 
   return (
     <div ref={containerRef} style={{ height: `${pages.length * 100}vh` }} className="relative">
-      <div className="sticky top-0 h-screen overflow-hidden bg-navy-deep/75">
+      <div className="sticky top-0 h-screen overflow-hidden bg-cloud">
         {/* Header — pinned above the sliding cards */}
         <div className="container-x relative z-10 pt-16">
           <div className="flex items-start justify-between">
             <div className="mx-auto max-w-2xl text-center sm:mx-0 sm:text-left">
               <span className="eyebrow">All Services</span>
-              <h2 className="mt-4 font-heading text-3xl font-semibold text-white sm:text-4xl">
+              <h2 className="mt-4 font-heading text-3xl font-semibold text-navy sm:text-4xl">
                 Our Full Range of Services
               </h2>
             </div>
@@ -123,12 +123,12 @@ function ServicesDesktop({ services }: { services: ServiceItem[] }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.25 }}
-                  className="font-heading text-3xl font-bold text-white tabular-nums"
+                  className="font-heading text-3xl font-bold text-navy tabular-nums"
                 >
                   0{active + 1}
                 </motion.span>
               </AnimatePresence>
-              <span className="font-body text-sm text-white/30">/ 0{pages.length}</span>
+              <span className="font-body text-sm text-navy/30">/ 0{pages.length}</span>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@ function ServicesDesktop({ services }: { services: ServiceItem[] }) {
                 {page.map((s) => (
                   <div
                     key={s.title}
-                    className="group flex flex-col overflow-hidden rounded-2xl bg-white/[0.04] ring-1 ring-white/10 sm:flex-row"
+                    className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-xl shadow-navy/5 ring-1 ring-navy/10 sm:flex-row"
                   >
                     <div className="relative h-52 overflow-hidden sm:h-auto sm:w-2/5">
                       <Image
@@ -158,8 +158,8 @@ function ServicesDesktop({ services }: { services: ServiceItem[] }) {
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-navy-deep/10 to-navy-deep/25" />
                     </div>
                     <div className="flex flex-1 flex-col p-6">
-                      <h3 className="font-heading text-xl font-semibold text-white">{s.title}</h3>
-                      <p className="mt-3 flex-1 font-body text-sm text-white/60">{s.text}</p>
+                      <h3 className="font-heading text-xl font-semibold text-navy">{s.title}</h3>
+                      <p className="mt-3 flex-1 font-body text-sm text-navy/65">{s.text}</p>
                       <div className="mt-5">
                         <ViewTransitionLink href={s.href} className="btn-primary !py-2.5 !px-6">
                           Read More
