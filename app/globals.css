@@ -72,10 +72,10 @@ body {
     @apply btn border border-white/50 text-white hover:bg-white hover:text-navy;
   }
 
-  /* Filled warm-gold pill — deliberately off the site's cyan accent so the
-     NDIS nav badge reads as a distinct highlight, not just another link. */
+  /* Filled purple pill, matching the official "We (heart) NDIS" branding,
+     so the NDIS nav badge reads as a distinct, recognisable highlight. */
   .btn-ndis {
-    @apply btn bg-yellow text-navy hover:bg-yellow-dark;
+    @apply btn bg-ndis text-white hover:bg-ndis-dark;
   }
 
   /* Outline pill on light backgrounds (e.g. "Learn More") */

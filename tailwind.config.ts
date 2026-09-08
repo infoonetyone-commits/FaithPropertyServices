@@ -24,6 +24,10 @@ const config: Config = {
           DEFAULT: "#f2b134", // sparing warm accent, used only in soft background glows
           dark: "#d99a1f",
         },
+        ndis: {
+          DEFAULT: "#5c2d91", // official "We (heart) NDIS" purple, used only for the NDIS button
+          dark: "#481f74",
+        },
       },
       fontFamily: {
         heading: ["var(--font-cormorant)", "serif"],
