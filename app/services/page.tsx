@@ -13,6 +13,12 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    title: "Warehouse Cleaning",
+    img: "/svc/warehouse-cleaning-hero.png",
+    href: "/warehouse-cleaning",
+    text: "Faith Property Services keeps large-scale warehouses and distribution centres clean, safe, and compliant. From floor scrubbing between racking aisles to loading bays, mezzanines, and staff amenities, our team works around your operating hours to minimise disruption to dispatch and receiving.",
+  },
+  {
     title: "Commercial Cleaning",
     img: "/sp-commercial.jpg",
     href: "/commercial-cleaning",

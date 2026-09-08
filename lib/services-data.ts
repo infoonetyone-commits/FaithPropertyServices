@@ -17,6 +17,55 @@ export type ServiceData = {
 
 export const services: ServiceData[] = [
   {
+    "slug": "warehouse-cleaning",
+    "title": "Warehouse Cleaning",
+    "intro": "Warehouse cleaning that keeps large-scale distribution and storage facilities safe, compliant, and running smoothly.",
+    "hero": "/svc/warehouse-cleaning-hero.png",
+    "image1": "/svc/warehouse-cleaning-1.png",
+    "image2": "/svc/warehouse-cleaning-2.png",
+    "image1Side": "L",
+    "image1Aspect": 0.56,
+    "image2Side": "R",
+    "image2Aspect": 0.8,
+    "sections": [
+      {
+        "heading": "Cleaning Built Around Your Operation",
+        "paragraphs": [
+          "Warehouses and distribution centres present unique cleaning challenges: high-bay racking, constant forklift and pallet traffic, loading docks, and long operating hours. Our team uses ride-on scrubbers, industrial vacuums, and high-reach equipment to clean concrete floors, racking, skylights, and amenities without slowing down your operation.",
+          "We schedule work around your dispatch and receiving windows, including after-hours and night-shift cleans, so warehouse cleaning never interrupts the flow of goods in and out of your facility.",
+          "Every clean follows a documented checklist covering safety compliance, so your site stays audit-ready year-round."
+        ],
+        "bullets": [
+          "Ride-on and walk-behind floor scrubbing",
+          "Racking, aisle, and mezzanine dusting",
+          "Loading bay and dock area cleaning",
+          "Staff amenities, break rooms, and offices",
+          "Dust extraction vents and skylight cleaning"
+        ]
+      },
+      {
+        "heading": "Why Clients Choose Faith Property Services",
+        "paragraphs": [
+          "We understand that a clean warehouse is a safer, more efficient warehouse — reducing slip hazards, protecting stock, and supporting compliance."
+        ],
+        "bullets": [
+          "Trusted by warehouses and logistics operators across Victoria",
+          "Flexible scheduling, including after-hours and night shifts",
+          "Fully insured, trained, and uniformed cleaning teams",
+          "Modern industrial cleaning equipment",
+          "Consistent, checklist-driven quality control"
+        ]
+      },
+      {
+        "heading": "Keep Your Facility Running Clean",
+        "paragraphs": [
+          "From single warehouses to multi-site distribution networks, Faith Property Services delivers reliable warehouse cleaning that fits your schedule and standards.",
+          "Request your free warehouse cleaning quote today."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "commercial-cleaning",
     "title": "Commercial Cleaning",
     "intro": "Maintaining a spotless business environment is vital for both presentation and hygiene. Faith Property Services delivers dependable commercial cleaning services in Melbourne and across Victoria, tailored to the specific requirements of each property.",
