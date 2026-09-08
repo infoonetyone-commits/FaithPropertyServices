@@ -1,54 +1,39 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import ServicePage from "@/components/ServicePage";
-import NDISHero from "@/components/NDISHero";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
-import MarqueeRibbon from "@/components/MarqueeRibbon";
-import Testimonials from "@/components/Testimonials";
-import { getService } from "@/lib/services-data";
+import Link from "next/link";
+import PageHero from "@/components/PageHero";
+import { Reveal } from "@/components/Reveal";
 
-export function generateMetadata(): Metadata {
-  const data = getService("ndis");
-  if (!data) return {};
-  return {
-    title: `${data.title} - Faith Property Services`,
-    description: data.intro,
-  };
-}
+export const metadata: Metadata = {
+  title: "NDIS Cleaning Services - Coming Soon | Faith Property Services",
+  description:
+    "Our dedicated NDIS cleaning services page is coming soon. Contact us today to discuss your NDIS cleaning needs.",
+};
 
-const gallery = [
-  { src: "/svc/window-cleaning-1.jpg", alt: "Internal window cleaning" },
-  { src: "/svc/steam-cleaning-1.jpg", alt: "Carpet and upholstery steam cleaning" },
-  { src: "/svc/after-builders-cleaning-1.png", alt: "Detailed surface cleaning" },
-];
-
-const gallery2 = [
-  { src: "/svc/end-of-lease-cleaning-1.png", alt: "Kitchen bench cleaning" },
-  { src: "/svc/after-builders-cleaning-2.jpg", alt: "The Faith Property Services team at work" },
-];
-
-// Mirrors the homepage's Hero -> MarqueeRibbon pairing, and already leads
-// with "NDIS APPROVED".
-const heroWithMarquee = (
-  <>
-    <NDISHero />
-    <MarqueeRibbon />
-  </>
-);
-
-export default function Page() {
-  const data = getService("ndis");
-  if (!data) notFound();
+export default function NDISPage() {
   return (
-    <>
-      <ScrollProgressBar />
-      <ServicePage
-        data={data}
-        hero={heroWithMarquee}
-        gallery={gallery}
-        gallery2={gallery2}
-        beforeCTA={<Testimonials />}
+    <main>
+      <PageHero
+        title="NDIS Cleaning Services"
+        subtitle="This page is coming soon."
       />
-    </>
+      <section className="bg-cloud py-20">
+        <div className="container-x max-w-2xl text-center">
+          <Reveal>
+            <span className="eyebrow">Coming Soon</span>
+            <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight text-navy sm:text-4xl">
+              We're putting the finishing touches on this page
+            </h2>
+            <p className="mt-5 font-body text-lg text-navy/65">
+              In the meantime, get in touch with our team directly to discuss your NDIS cleaning
+              requirements — we're ready to help.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link href="/contact" className="btn-primary">Contact Us</Link>
+              <a href="tel:1300849252" className="btn-ndis">Call 1300 849 252</a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </main>
   );
 }
