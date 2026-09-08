@@ -21,7 +21,7 @@ const services = [
     title: "Industrial Cleaning",
     badge: "Industrial",
     text: "Safe, efficient cleaning for warehouses, factories, and production sites, ensuring compliance and productivity.",
-    img: "/service-industrial.jpg",
+    img: "/service-industrial-briefing.png",
     href: "/commercial-cleaning/industrial-cleaning",
   },
   {
