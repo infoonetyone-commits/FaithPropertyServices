@@ -4,6 +4,13 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 
 const services = [
   {
+    title: "Warehouse Cleaning",
+    badge: "Warehouse",
+    text: "Floor scrubbing, racking, loading bays, and amenities kept spotless and compliant without disrupting dispatch.",
+    img: "/svc/warehouse-cleaning-hero.png",
+    href: "/warehouse-cleaning",
+  },
+  {
     title: "Commercial Cleaning",
     badge: "Commercial",
     text: "Customised cleaning for offices, retail spaces, and facilities, keeping every area spotless and business-ready.",
@@ -16,13 +23,6 @@ const services = [
     text: "Safe, efficient cleaning for warehouses, factories, and production sites, ensuring compliance and productivity.",
     img: "/service-industrial.jpg",
     href: "/commercial-cleaning/industrial-cleaning",
-  },
-  {
-    title: "Fitness Centre Cleaning",
-    badge: "Fitness",
-    text: "Maintain a clean, hygienic shopping environment that enhances customer experience and brand reputation.",
-    img: "/service-fitness.jpg",
-    href: "/commercial-cleaning/fitness-centre-cleaning",
   },
   {
     title: "Healthcare & Education Cleaning",
