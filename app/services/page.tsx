@@ -76,7 +76,7 @@ export default function ServicesPage() {
       <section className="bg-navy-deep/75 py-20">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl shadow-cyan/5 ring-1 ring-white/10">
-            <Image src="/sp-legacy.jpg" alt="Faith Property Services legacy" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            <Image src="/sp-legacy-compliance.png" alt="Faith Property Services legacy" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-navy-deep/10 to-navy-deep/25" />
           </Reveal>
           <Reveal delay={0.1}>
